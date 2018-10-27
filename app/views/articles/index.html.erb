@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<div style="width: 100%">
+<div style="float:left">
+  <h1>Articles</h1>
+</div>
+  <div style="float:right">
+    <%= link_to 'New Article', new_article_path ,class: 'btn btn-primary'%>
+  </div>
+</div>
+
+<div style="clear: both"></div>
+
+<% @articles.each do |article| %>
+  <div class="jumbotron">
+    <h1><%= article.title %></h1>
+    <p class="lead">Language: <%= article.language %></p>
+    <div>
+      <%= link_to 'Show', article,class: 'btn btn-primary' %>&nbsp;
+      <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_article_path(article),class: 'btn btn-primary' %>&nbsp;
+      <%= link_to 'Destroy', article, method: :delete, data: {confirm: 'Are you sure?'} ,class: 'btn btn-primary' %>&nbsp;
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+
+
+
