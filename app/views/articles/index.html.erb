@@ -5,7 +5,7 @@
   <h1>Articles</h1>
 </div>
   <div style="float:right">
-    <%= link_to 'New Article', new_article_path ,class: 'btn btn-primary'%>
+    <%= link_to 'New Article', new_article_path ,class: 'btn btn-success'%>
   </div>
 </div>
 
@@ -16,10 +16,10 @@
     <h5 class="card-title"><%= article.title %></h5>
     <p class="card-text">Language: <%= article.language %></p>
     <div>
-      <%= link_to 'Show', article,class: 'btn btn-primary' %>&nbsp;
+      <%= link_to 'Show', article,class: 'btn btn-success' %>&nbsp;
       <% if user_signed_in? %>
-      <%= link_to 'Edit', edit_article_path(article),class: 'btn btn-primary' %>&nbsp;
-      <%= link_to 'Destroy', article, method: :delete, data: {confirm: 'Are you sure?'} ,class: 'btn btn-primary' %>&nbsp;
+      <%= link_to 'Edit', edit_article_path(article),class: 'btn btn-success' %>&nbsp;
+      <%= link_to 'Destroy', article, method: :delete, data: {confirm: 'Are you sure?'} ,class: 'btn btn-success' %>&nbsp;
       <% end %>
     </div>
   </div>
