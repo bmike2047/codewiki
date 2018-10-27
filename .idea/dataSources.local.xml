@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Rails codewiki: development" uuid="494dcbc4-35f8-45fd-a5c5-59f407c14262">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <secret-storage>master_key</secret-storage>
+      <first-sync>true</first-sync>
+      <user-name>codewiki_user</user-name>
+    </data-source>
+    <data-source name="Rails codewiki: production" uuid="5b7d5275-0e8e-4cfe-bc60-b7a3912481cd">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+      <user-name>codewiki</user-name>
+    </data-source>
+    <data-source name="Rails codewiki: test" uuid="2e5b5e4d-aa7a-42fc-b3a5-b5143fe48814">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" />
+      <first-sync>true</first-sync>
+    </data-source>
+    <data-source name="PostgreSQL - codewiki_development@127.0.0.1" uuid="e3c05582-3f13-47b9-8d40-d48224b499d4">
+      <database-info product="PostgreSQL" version="9.6.10" jdbc-version="4.2" driver-name="PostgreSQL JDBC Driver" driver-version="42.2.2">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <introspection-schemas>codewiki_development:public</introspection-schemas>
+    </data-source>
+  </component>
+</project>

@@ -12,9 +12,9 @@
 <div style="clear: both"></div>
 
 <% @articles.each do |article| %>
-  <div class="jumbotron">
-    <h1><%= article.title %></h1>
-    <p class="lead">Language: <%= article.language %></p>
+  <div class="card card-body" style="background-color: #e3f2fd;">
+    <h5 class="card-title"><%= article.title %></h5>
+    <p class="card-text">Language: <%= article.language %></p>
     <div>
       <%= link_to 'Show', article,class: 'btn btn-primary' %>&nbsp;
       <% if user_signed_in? %>
