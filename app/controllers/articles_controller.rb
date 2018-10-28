@@ -6,9 +6,9 @@ class ArticlesController < ApplicationController
   # GET /articles.json
   def index
     if user_signed_in?
-      @articles = current_user.articles.all
+      @articles = current_user.articles.order(created_at: :desc)
     else
-      @articles = Article.all
+      @articles = Article.order(created_at: :desc)
     end
 
   end

@@ -1,14 +1,13 @@
-
 <% if !notice.blank? %>
-<div class="alert alert-success" role="alert">
-  <%= notice %>
-</div>
-  <% end %>
+  <div class="alert alert-success" role="alert">
+    <%= notice %>
+  </div>
+<% end %>
 
-<div style="width: 100%;height:50px;" >
+<div style="width: 100%;height:50px;">
   <div style="float:left">
     <% if user_signed_in? %>
-      <h2>Articles for <%=  current_user.email%></h2>
+      <h2>Articles for <%= current_user.email %></h2>
     <% else %>
       <h2>Articles </h2>
     <% end %>
@@ -28,7 +27,7 @@
       <%= link_to 'Show content', article, class: 'btn btn-success' %>&nbsp;
       <% if user_signed_in? %>
         <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-success' %>&nbsp;
-        <%= link_to 'Delete', article, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-success' %>&nbsp;
+        <%= link_to 'Delete', article, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-danger' %>&nbsp;
       <% end %>
     </div>
   </div>

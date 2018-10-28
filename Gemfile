@@ -14,7 +14,7 @@ gem 'execjs'
 gem 'therubyracer'
 gem 'devise'
 gem 'tinymce-rails'
-
+gem "letter_opener", :group => :development
 
 
 # Use Puma as the app server
