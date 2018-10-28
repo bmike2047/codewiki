@@ -1,19 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<p>
+<h2>Article content</h2>
+
+
+
+<div class="form-group ">
+  <label for="article_title" class="font-weight-bold">Title</label>
+  <input class="form-control-plaintext " readonly="readonly" value="<%= @article.title %>" name="article[title]" id="article_title" type="text">
+</div>
+
+<div class="form-group">
+  <label for="article_language" class="font-weight-bold">Language</label>
+  <input class="form-control-plaintext" readonly="readonly" value="<%= @article.language %>" name="article[language]" id="article_language" type="text">
+</div>
+
+<div class="form-group">
+  <label for="article_body" class="font-weight-bold">Body</label>
+  <div>
+    <%= raw @article.body %>
+  </div>
+</div>
+
+
+
+<!--<p>
   <strong>Title:</strong>
-  <%= @article.title %>
+  <%#= @article.title %>
 </p>
 
 <p>
   <strong>Language:</strong>
-  <%= @article.language %>
+  <%#= @article.language %>
 </p>
 
 <p>
   <strong>Body:</strong>
-  <%= raw @article.body %>
-</p>
+  <%#= raw @article.body %>
+</p>-->
 
-<%= link_to 'Edit', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<%= link_to 'Edit', edit_article_path(@article),class:'btn btn-success' %>
+<%= link_to 'Back', articles_path,class:'btn btn-success' %>
