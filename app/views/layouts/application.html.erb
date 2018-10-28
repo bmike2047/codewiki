@@ -14,20 +14,20 @@
 <body>
 
 <nav class="navbar navbar-expand-md navbar-light  fixed-top" style="background-color: #e3f2fd;">
-  <a class="navbar-brand" href="#">CodeWiki</a>
-
-
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+  <%= link_to 'CodeWiki', root_path, class: 'navbar-brand' %>
+  <div class="collapse navbar-collapse" id="navbarsWiki">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <%= link_to 'Home', root_path, class: 'nav-link' %>
       </li>
       <% if user_signed_in? %>
         <li class="nav-item">
-          <%= link_to 'New Article', new_article_path, class: 'nav-link' %>
+            <span class="navbar-text">
+             Welcome <%= current_user.email %>
+            </span>
         </li>
         <li class="nav-item">
-          <%= link_to 'Sign out', destroy_user_session_path,:method => :delete, class: 'nav-link' %>
+          <%= link_to 'Sign out', destroy_user_session_path, :method => :delete, class: 'nav-link' %>
         </li>
       <% else %>
         <li class="nav-item">
@@ -38,10 +38,18 @@
         </li>
       <% end %>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
+
+
+    <%= form_tag('/articles/search',class:'form-inline my-2 my-lg-0') do -%>
+      <%=text_field_tag 'search', nil, placeholder: 'Search',arialabel:'Search',class:'form-control mr-sm-2'  %>
+      <%= submit_tag 'Search', class: 'btn btn-outline-success my-2 my-sm-0' %>
+    <% end -%>
+
+
+<!--    <form class="form-inline my-2 my-lg-0">
       <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
       <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    </form>
+    </form>-->
   </div>
 </nav>
 <div class="container">

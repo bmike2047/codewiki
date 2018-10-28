@@ -1,6 +1,8 @@
+
 <%= form_with(model: article, local: true) do |form| %>
   <% if article.errors.any? %>
-    <div id="error_explanation">
+    <div class="alert alert-danger" role="alert">
+
       <h2><%= pluralize(article.errors.count, "error") %> prohibited this article from being saved:</h2>
 
       <ul>
@@ -11,24 +13,25 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :title %>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :language %>
-    <%= form.text_field :language %>
+    <%= form.text_field :language, class:'form-control' %>
   </div>
 
-  <div class="field">
+  <div class="form-group">
     <%= form.label :body %>
-    <%= form.text_area :body, :class => "tinymce", :rows => 40, :cols => 120 %>
+    <%= form.text_area :body, :class => "form-control tinymce", :rows => 10, :cols => 10 %>
   </div>
   <%= tinymce %>
 
-  <div class="actions">
-    <%= form.submit %>
+  <div>
+    <%= form.submit  :class =>'btn btn-success' %>
   </div>
+  <%= link_to 'Back', articles_path %>
 <% end %>
 

@@ -1,11 +1,16 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, except: [:index,:show]
+  before_action :authenticate_user!, except: [:index,:show,:search]
 
   # GET /articles
   # GET /articles.json
   def index
-    @articles = Article.all
+    if user_signed_in?
+      @articles = current_user.articles.all
+    else
+      @articles = Article.all
+    end
+
   end
 
   # GET /articles/1
@@ -15,7 +20,8 @@ class ArticlesController < ApplicationController
 
   # GET /articles/new
   def new
-    @article = Article.new
+    #@article = Article.new
+    @article = current_user.articles.new
   end
 
   # GET /articles/1/edit
@@ -26,15 +32,13 @@ class ArticlesController < ApplicationController
   # POST /articles
   # POST /articles.json
   def create
-    @article = Article.new(article_params)
-
+    #@article = Article.new(article_params)
+    @article = current_user.articles.new(article_params)
     respond_to do |format|
       if @article.save
         format.html { redirect_to @article, notice: 'Article was successfully created.' }
-        format.json { render :show, status: :created, location: @article }
       else
         format.html { render :new }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -45,10 +49,8 @@ class ArticlesController < ApplicationController
     respond_to do |format|
       if @article.update(article_params)
         format.html { redirect_to @article, notice: 'Article was successfully updated.' }
-        format.json { render :show, status: :ok, location: @article }
       else
         format.html { render :edit }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -58,10 +60,18 @@ class ArticlesController < ApplicationController
   def destroy
     @article.destroy
     respond_to do |format|
-      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
-      format.json { head :no_content }
+      format.html { redirect_to articles_url, notice: 'Article was successfully deleted.' }
     end
   end
+
+  def search
+    #render html: "Hmm + " + params[:search]
+    @articles= Article.where("title LIKE :search OR language LIKE :search", search: '%'+params[:search]+'%')
+    #redirect_to articles_url
+    render :index
+
+  end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

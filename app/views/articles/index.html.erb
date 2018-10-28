@@ -1,28 +1,38 @@
-<p id="notice"><%= notice %></p>
 
-<div style="width: 100%">
-<div style="float:left">
-  <h1>Articles</h1>
+<% if !notice.blank? %>
+<div class="alert alert-success" role="alert">
+  <%= notice %>
 </div>
+  <% end %>
+
+<div style="width: 100%;height:50px;" >
+  <div style="float:left">
+    <% if user_signed_in? %>
+      <h2>Articles for <%=  current_user.email%></h2>
+    <% else %>
+      <h2>Articles </h2>
+    <% end %>
+  </div>
   <div style="float:right">
-    <%= link_to 'New Article', new_article_path ,class: 'btn btn-success'%>
+    <%= link_to 'New Article', new_article_path, class: 'btn btn-success' %>
   </div>
 </div>
 
-<div style="clear: both"></div>
+<div style="clear: both;">&nbsp;</div>
 
 <% @articles.each do |article| %>
   <div class="card card-body" style="background-color: #e3f2fd;">
     <h5 class="card-title"><%= article.title %></h5>
     <p class="card-text">Language: <%= article.language %></p>
     <div>
-      <%= link_to 'Show', article,class: 'btn btn-success' %>&nbsp;
+      <%= link_to 'Show content', article, class: 'btn btn-success' %>&nbsp;
       <% if user_signed_in? %>
-      <%= link_to 'Edit', edit_article_path(article),class: 'btn btn-success' %>&nbsp;
-      <%= link_to 'Destroy', article, method: :delete, data: {confirm: 'Are you sure?'} ,class: 'btn btn-success' %>&nbsp;
+        <%= link_to 'Edit', edit_article_path(article), class: 'btn btn-success' %>&nbsp;
+        <%= link_to 'Delete', article, method: :delete, data: {confirm: 'Are you sure?'}, class: 'btn btn-success' %>&nbsp;
       <% end %>
     </div>
   </div>
+  <br/>
 <% end %>
 
 
