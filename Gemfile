@@ -15,6 +15,7 @@ gem 'therubyracer'
 gem 'devise'
 gem 'tinymce-rails'
 gem "letter_opener", :group => :development
+gem 'rails-controller-testing'
 
 
 # Use Puma as the app server

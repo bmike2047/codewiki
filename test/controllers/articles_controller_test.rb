@@ -10,6 +10,7 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+=begin
   test "should get new" do
     get new_article_url
     assert_response :success
@@ -45,4 +46,5 @@ class ArticlesControllerTest < ActionDispatch::IntegrationTest
 
     assert_redirected_to articles_url
   end
+=end
 end
