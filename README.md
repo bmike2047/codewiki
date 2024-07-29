@@ -48,7 +48,7 @@ As root user execute the followng commands
     psql
     create role root with createdb login password '12345678';  //we installed the db as root so we add root, you can skip this part if you have other user configured
     
-    //Bellow we enable standalone sql clients to connect to our db
+    //Below we enable standalone sql clients to connect to our db
     vi /var/lib/pgsql/9.6/data/pg_hba.conf
     replace
     host    all             all             127.0.0.1/32            ident
@@ -59,7 +59,7 @@ As root user execute the followng commands
 ```
 
 ##### Configure wikicode and rails
-Download the project from this repository and extract it to a folder named codewiki.<br/>
+Download the project from this repository to a folder named codewiki.<br/>
 As root user execute the followng commands
 
 ```bash
